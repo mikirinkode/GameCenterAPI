@@ -2,6 +2,7 @@ package com.mikirinkode.nexo.service;
 
 import com.mikirinkode.nexo.form.GameForm;
 import com.mikirinkode.nexo.model.GameModel;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface GameSvc {
 
     List<GameModel> getAll();
 
-    GameModel findById(Long id);
+    ResponseEntity<Object> findById(Long id);
 }

@@ -4,6 +4,7 @@ import com.mikirinkode.nexo.form.GameForm;
 import com.mikirinkode.nexo.model.GameModel;
 import com.mikirinkode.nexo.service.GameSvc;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class GameController {
     }
 
     @GetMapping(value = "{id}")
-    public GameModel findById(@PathVariable Long id){
+    public ResponseEntity<Object> findById(@PathVariable Long id){
         return gameSvc.findById(id);
     }
 }
