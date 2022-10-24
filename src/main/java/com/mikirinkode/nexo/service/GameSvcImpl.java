@@ -6,6 +6,8 @@ import com.mikirinkode.nexo.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GameSvcImpl implements GameSvc{
 
@@ -21,6 +23,10 @@ public class GameSvcImpl implements GameSvc{
         return gameRepo.save(game(form));
     }
 
+    @Override
+    public List<GameModel> getAll(){
+        return gameRepo.findAll();
+    }
 
     private GameModel game(GameForm form) {
         GameModel game = new GameModel();

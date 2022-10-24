@@ -4,10 +4,9 @@ import com.mikirinkode.nexo.form.GameForm;
 import com.mikirinkode.nexo.model.GameModel;
 import com.mikirinkode.nexo.service.GameSvc;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/game")
@@ -25,4 +24,8 @@ public class GameController {
         return gameSvc.create(form);
     }
 
+    @GetMapping
+    public List<GameModel> getAll() {
+        return gameSvc.getAll();
+    }
 }
