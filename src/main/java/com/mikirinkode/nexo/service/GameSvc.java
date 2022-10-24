@@ -12,4 +12,6 @@ public interface GameSvc {
     List<GameModel> getAll();
 
     ResponseEntity<Object> findById(Long id);
+
+    ResponseEntity<Object> updateById(GameForm form, Long id);
 }

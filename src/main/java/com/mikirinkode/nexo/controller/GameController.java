@@ -34,4 +34,10 @@ public class GameController {
     public ResponseEntity<Object> findById(@PathVariable Long id){
         return gameSvc.findById(id);
     }
+
+    @PostMapping(value = "{id}/update")
+    public ResponseEntity<Object> updateById(@RequestBody GameForm form, @PathVariable Long id){
+        return gameSvc.updateById(form, id);
+    }
+
 }

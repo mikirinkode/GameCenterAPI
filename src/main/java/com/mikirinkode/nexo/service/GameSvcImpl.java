@@ -43,6 +43,24 @@ public class GameSvcImpl implements GameSvc{
         }
     }
 
+    @Override
+    public ResponseEntity<Object> updateById(GameForm form, Long id) {
+        try {
+            Optional<GameModel> opt = gameRepo.findById(id);
+            if (!opt.isPresent()) return ResponseUtil.build(MessageConstant.DATA_NOT_FOUND, null, HttpStatus.NOT_FOUND);
+            GameModel game = opt.get();
+            game.setGameName(form.getGameName());
+            game.setGameDesc(form.getGameDesc());
+            game.setRequirement(form.getRequirement());
+            game.setPrice(form.getPrice());
+            gameRepo.save(game);
+            return ResponseUtil.build(MessageConstant.UPDATE_SUCCESS , game, HttpStatus.OK);
+        } catch (Exception e){
+            return ResponseUtil.build(e.getMessage(), null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
     private GameModel game(GameForm form) {
         GameModel game = new GameModel();
         game.setGameName(form.getGameName());
