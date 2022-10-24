@@ -1,5 +1,6 @@
 package com.mikirinkode.nexo.model;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "game")
 @NoArgsConstructor
+@Data
 public class GameModel extends BaseDao {
 
     @Id
