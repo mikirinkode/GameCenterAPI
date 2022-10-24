@@ -14,4 +14,6 @@ public interface GameSvc {
     ResponseEntity<Object> findById(Long id);
 
     ResponseEntity<Object> updateById(GameForm form, Long id);
+
+    ResponseEntity<Object> deleteById(Long id);
 }

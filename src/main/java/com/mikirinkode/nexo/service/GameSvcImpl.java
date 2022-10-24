@@ -60,6 +60,17 @@ public class GameSvcImpl implements GameSvc{
         }
     }
 
+    @Override
+    public ResponseEntity<Object> deleteById(Long id) {
+        try {
+            Optional<GameModel> getById = gameRepo.findById(id);
+            if (!getById.isPresent()) return ResponseUtil.build(MessageConstant.DATA_NOT_FOUND, null, HttpStatus.NOT_FOUND);
+            gameRepo.deleteOne(true, getById.get().getId());
+            return ResponseUtil.build(MessageConstant.DELETE_SUCCESS, null, HttpStatus.OK);
+        } catch (Exception e){
+            return ResponseUtil.build(e.getMessage(), null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     private GameModel game(GameForm form) {
         GameModel game = new GameModel();

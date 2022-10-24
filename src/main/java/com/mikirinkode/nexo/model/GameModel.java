@@ -3,6 +3,7 @@ package com.mikirinkode.nexo.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Table(name = "game")
 @NoArgsConstructor
 @Data
+@Where(clause = "is_deleted = false")
 public class GameModel extends BaseDao {
 
     @Id

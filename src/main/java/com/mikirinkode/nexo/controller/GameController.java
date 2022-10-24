@@ -40,4 +40,8 @@ public class GameController {
         return gameSvc.updateById(form, id);
     }
 
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<Object> deleteById(@PathVariable Long id){
+        return gameSvc.deleteById(id);
+    }
 }
