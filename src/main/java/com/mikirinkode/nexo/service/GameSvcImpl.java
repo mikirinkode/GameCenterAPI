@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GameSvcImpl implements GameSvc{
@@ -26,6 +27,12 @@ public class GameSvcImpl implements GameSvc{
     @Override
     public List<GameModel> getAll(){
         return gameRepo.findAll();
+    }
+
+    @Override
+    public GameModel findById(Long id) {
+        Optional<GameModel> opt = gameRepo.findById(id);
+        return opt.orElse(null);
     }
 
     private GameModel game(GameForm form) {

@@ -28,4 +28,9 @@ public class GameController {
     public List<GameModel> getAll() {
         return gameSvc.getAll();
     }
+
+    @GetMapping(value = "{id}")
+    public GameModel findById(@PathVariable Long id){
+        return gameSvc.findById(id);
+    }
 }
